@@ -15,13 +15,14 @@ public class MessageHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRegistered(final ChannelHandlerContext ctx) {
+        System.out.println("channelRegistered!");
         FileListMessage flm = new FileListMessage(getFilesList());
         ctx.writeAndFlush(flm);
     }
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("Ready!");
+    public void channelActive(ChannelHandlerContext ctx) {
+        System.out.println("channelActive!");
     }
 
     @Override
