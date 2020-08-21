@@ -72,10 +72,14 @@ public class MainController extends Window implements Initializable {
     }
 
     private void downloadFile(final FileMessage fm) {
+        updateUI(() -> saveFile(fm));
+    }
+
+    private void updateUI(Runnable r) {
         if (Platform.isFxApplicationThread()) {
-            saveFile(fm);
+            r.run();
         } else {
-            Platform.runLater(() -> saveFile(fm));
+            Platform.runLater(r);
         }
     }
 
@@ -100,15 +104,10 @@ public class MainController extends Window implements Initializable {
     }
 
     private void refreshRemoteFilesList(final FileListMessage flm) {
-        if (Platform.isFxApplicationThread()) {
+        updateUI(() -> {
             serverFilesList.getItems().clear();
             flm.getFiles().forEach(s -> serverFilesList.getItems().add(s));
-        } else {
-            Platform.runLater(() -> {
-                serverFilesList.getItems().clear();
-                flm.getFiles().forEach(s -> serverFilesList.getItems().add(s));
-            });
-        }
+        });
     }
 
     private void uploadFile(final File file) throws IOException {
