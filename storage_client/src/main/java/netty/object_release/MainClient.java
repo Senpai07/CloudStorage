@@ -1,4 +1,4 @@
-package netty;
+package netty.object_release;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ public class MainClient extends Application {
 
     private static final String TITLE = "CloudStorage Client";
 
-    private static final String FXML = "MainForm.fxml";
+    private static final String FXML = "netty/object_release/MainForm.fxml";
 
     @Override
     public void start(final Stage primaryStage) throws Exception {

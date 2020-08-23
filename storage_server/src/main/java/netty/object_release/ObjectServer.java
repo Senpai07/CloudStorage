@@ -1,4 +1,4 @@
-package netty;
+package netty.object_release;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -12,10 +12,10 @@ import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
 
-public final class NettyServer {
+public final class ObjectServer {
 
 
-    private NettyServer() {
+    private ObjectServer() {
     }
 
     private void run() throws Exception {
@@ -54,6 +54,6 @@ public final class NettyServer {
     }
 
     public static void main(final String[] args) throws Exception {
-        new NettyServer().run();
+        new ObjectServer().run();
     }
 }

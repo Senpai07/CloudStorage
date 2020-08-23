@@ -1,4 +1,4 @@
-package netty;
+package netty.object_release;
 
 import io.netty.handler.codec.serialization.ObjectDecoderInputStream;
 import io.netty.handler.codec.serialization.ObjectEncoderOutputStream;

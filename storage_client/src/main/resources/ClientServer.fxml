@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="423.0" prefWidth="738.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netty.byte_release.controller.ClientServer">
+    <children>
+        <AnchorPane layoutY="56.0" prefHeight="344.0" prefWidth="700.0" style="-fx-background-color: #fafafa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
+            <children>
+                <AnchorPane layoutX="112.0" layoutY="405.0" prefHeight="25.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <HBox fx:id="progressBox" alignment="CENTER" managed="false" prefHeight="25.0" prefWidth="700.0" visible="false" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+                      <Label fx:id="fileLabel" />
+                      <ProgressBar fx:id="progressBar" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+                      <Label fx:id="progressLabel" />
+                  </HBox>
+               </children></AnchorPane>
+                <SplitPane dividerPositions="0.5" layoutX="-2.0" layoutY="14.0" minHeight="200.0" minWidth="300.0" prefHeight="322.0" prefWidth="700.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <AnchorPane minHeight="0.0" minWidth="-Infinity" prefHeight="160.0" prefWidth="100.0">
+                            <children>
+                                <Label fx:id="clientPathLabel" blendMode="MULTIPLY" layoutX="67.0" layoutY="2.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #fafafa;" text="Локальный диск" textFill="#8a8a8a" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                                    <font>
+                                        <Font name="Georgia Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="uploadButton" focusTraversable="false" layoutX="232.0" layoutY="284.0" mnemonicParsing="false" onAction="#UploadFile" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #f39c63;" text="Загрузить" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="4.0">
+                                    <font>
+                                        <Font name="Georgia Bold" size="13.0" />
+                                    </font>
+                                </Button>
+                                <TableView fx:id="localFiles" layoutX="7.0" layoutY="25.0" prefHeight="255.0" prefWidth="339.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="25.0">
+                                </TableView>
+                                <Button fx:id="delClientButton" focusTraversable="false" layoutX="113.0" layoutY="284.0" mnemonicParsing="false" onAction="#delLocalFile" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #f39c63;" text="Удалить" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="120.0">
+                                    <font>
+                                        <Font name="Georgia Bold" size="13.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="topFolderClient" layoutX="323.0" layoutY="2.0" mnemonicParsing="false" onAction="#getParentPathClient" prefHeight="0.0" prefWidth="9.0" style="-fx-background-color: #f39c63;" text="^" textFill="WHITE" AnchorPane.rightAnchor="4.0">
+                                    <font>
+                                        <Font name="Tahoma Bold" size="10.0" />
+                                    </font>
+                                </Button>
+                                <ComboBox fx:id="driveSelect" onAction="#changeDiskAction" prefHeight="25.0" prefWidth="63.0" />
+                                <Button fx:id="refreshClientFilesButton" focusTraversable="false" layoutX="19.0" layoutY="307.0" mnemonicParsing="false" onAction="#refreshClientFilesAction" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #f39c63;" text="Обновить" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="236.0">
+                                    <font>
+                                        <Font name="Georgia Bold" size="13.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="-Infinity" prefHeight="160.0" prefWidth="120.0">
+                            <children>
+                                <Button fx:id="delServerButton" focusTraversable="false" mnemonicParsing="false" onAction="#delServerFile" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #f39c63;" text="Удалить" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="4.0">
+                                    <font>
+                                        <Font name="Georgia Bold" size="13.0" />
+                                    </font>
+                                </Button>
+                                <Label fx:id="serverPathLabel" blendMode="MULTIPLY" prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: #fafafa;" text="Облако" textFill="#8a8a8a" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <font>
+                                        <Font name="Georgia Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TableView fx:id="serverFiles" layoutY="25.0" prefHeight="255.0" prefWidth="339.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="25.0">
+                                </TableView>
+                                <Button fx:id="downloadButton" focusTraversable="false" layoutX="110.0" layoutY="284.0" mnemonicParsing="false" onAction="#downloadFile" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #f39c63;" text="Скачать" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="120.0">
+                                    <font>
+                                        <Font name="Georgia Bold" size="13.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="topFolderServer" layoutX="316.0" layoutY="1.0" mnemonicParsing="false" onAction="#getParentPathServer" prefHeight="0.0" prefWidth="9.0" style="-fx-background-color: #f39c63;" text="^" textFill="WHITE" AnchorPane.rightAnchor="4.0">
+                                    <font>
+                                        <Font name="Tahoma Bold" size="10.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="refreshServerFilesButton" focusTraversable="false" layoutX="18.0" layoutY="307.0" mnemonicParsing="false" onAction="#refreshServerFilesAction" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: #f39c63;" text="Обновить" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="236.0">
+                                    <font>
+                                        <Font name="Georgia Bold" size="13.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </items>
+                </SplitPane>
+            </children>
+        </AnchorPane>
+        <Label alignment="CENTER" layoutY="6.0" minWidth="-Infinity" prefHeight="42.0" prefWidth="738.0" text="Cloud FileServer" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <font>
+                <Font name="Monotype Corsiva" size="34.0" />
+            </font>
+        </Label>
+        <Button fx:id="exitButton" layoutX="620.0" layoutY="15.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #f39c63;" text="Закрыть" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
+            <font>
+                <Font name="Georgia Bold" size="13.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

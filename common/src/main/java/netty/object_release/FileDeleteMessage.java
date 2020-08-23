@@ -1,6 +1,4 @@
-package netty;
-
-import java.util.List;
+package netty.object_release;
 
 public class FileDeleteMessage extends AbstractMessage {
 
