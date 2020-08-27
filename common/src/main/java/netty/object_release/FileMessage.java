@@ -1,4 +1,4 @@
-package netty;
+package netty.object_release;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,8 +1,12 @@
-package netty;
+package netty.object_release;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
+import netty.object_release.FileDeleteMessage;
+import netty.object_release.FileListMessage;
+import netty.object_release.FileMessage;
+import netty.object_release.FileRequest;
 
 import java.io.IOException;
 import java.nio.file.Files;

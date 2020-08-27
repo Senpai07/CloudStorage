@@ -1,4 +1,4 @@
-package netty;
+package netty.object_release;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
